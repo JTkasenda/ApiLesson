@@ -11,3 +11,4 @@ Route::get('list/{id?}', [DeviceController::class, 'list']);
 Route::post('/create', [DeviceController::class, 'create']);
 Route::put('/update/{id}', [DeviceController::class, 'update']);
 Route::get('/search/{name}', [DeviceController::class, 'search']);
+Route::delete("/delete/{id}", [DeviceController::class, 'delete']);
