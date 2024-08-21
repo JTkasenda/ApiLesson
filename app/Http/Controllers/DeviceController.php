@@ -39,4 +39,8 @@ class DeviceController extends Controller
         }
         return response()->json(['message'=>'Device not found'], 404);
     }
+    public function search($name){
+        return Device::where('name', 'LIKE', '%'.$name.'%')->get();
+
+    }
 }
