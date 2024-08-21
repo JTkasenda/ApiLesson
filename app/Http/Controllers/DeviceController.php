@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Device;
 use App\Models\User;
+use Validator;
 use Illuminate\Http\Request;
 
 class DeviceController extends Controller
@@ -55,4 +56,18 @@ class DeviceController extends Controller
         }
         
     }
+
+    public function testData(Request $request){
+        $rules = [
+            "id"=>["numeric", "required"]
+        ];
+        $validator = Validator::make($request->all(), $rules);
+        if($validator->fails()){
+            return $validator->errors();
+        }
+        else{
+            
+            return response()->json(['success' =>'check over'], 200);
+        }
+     }
 }
