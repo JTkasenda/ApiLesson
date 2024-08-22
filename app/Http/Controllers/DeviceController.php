@@ -63,10 +63,10 @@ class DeviceController extends Controller
         ];
         $validator = Validator::make($request->all(), $rules);
         if($validator->fails()){
-            return $validator->errors();
+            return response()->json($validator->errors(), 401);
         }
         else{
-            
+
             return response()->json(['success' =>'check over'], 200);
         }
      }
