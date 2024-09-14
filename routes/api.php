@@ -8,6 +8,7 @@ Route::get('/user', function (Request $request) {
     return $request->user();
 })->middleware('auth:sanctum');
 Route::group(['middleware'=>'auth:sanctum'], function(){
+
     Route::get('list/{id?}', [DeviceController::class, 'list']);
     Route::post('/create', [DeviceController::class, 'create']);
     Route::put('/update/{id}', [DeviceController::class, 'update']);
